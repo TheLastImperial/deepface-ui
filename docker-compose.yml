@@ -1,0 +1,15 @@
+services:
+  deepface:
+    image: serengil/deepface:latest
+    container_name: deepface
+    volumes:
+      - ./models:/root/.deepface/weights
+    environment:
+      - CUDA_VISIBLE_DEVICES=-1
+  deepface-ui:
+    image: deepface-ui
+    container_name: deepface_ui
+    ports:
+      - "5006:80"
+    depends_on:
+      - deepface
