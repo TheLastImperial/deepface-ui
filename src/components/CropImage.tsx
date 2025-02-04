@@ -1,5 +1,6 @@
-import { Grid2 } from "@mui/material";
 import { useEffect, useRef } from "react";
+
+import { Grid2 } from "@mui/material";
 
 export type Area = {
     width: number;
@@ -22,7 +23,7 @@ const CropImage = ({imgSrc, area}: CropImageProps) => {
         const ctx = canvas.getContext('2d');
         const imageObj = new Image();
         imageObj.src = imgSrc;
-        imageObj.onload = function() {
+        imageObj.onload = () => {
             canvas.width = area.width;
             canvas.height = area.height;
 

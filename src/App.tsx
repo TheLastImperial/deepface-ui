@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { Container, Grid2 } from "@mui/material";
 import { DropEvent, FileRejection } from "react-dropzone";
 
-import { getEnvVariables } from "./helpers/getEnvVars";
+import { getEnvVariables } from "./helpers";
 
 import { getBase64, VerifyResponse } from "./utils";
 import { Area, ImageWrapper, TableData } from "./components";
@@ -26,7 +26,9 @@ const App = () => {
     const [success, setSuccess] = useState(false);
 
     const { VITE_API_URL } = getEnvVariables();
-    const { handleSubmit, register, setValue, formState: {isValid} } = useForm<FormProps>();
+    const {
+        handleSubmit, register, setValue, formState: {isValid}
+    } = useForm<FormProps>();
 
     const onDrop1 = useCallback(async ( acceptedFiles: File[],
         _fileRejections: FileRejection[], _event: DropEvent)=> {

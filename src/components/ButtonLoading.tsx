@@ -1,9 +1,7 @@
-import Box from '@mui/material/Box';
-import CircularProgress from '@mui/material/CircularProgress';
-import { green } from '@mui/material/colors';
-import Button from '@mui/material/Button';
-import Fab from '@mui/material/Fab';
 import { AutoMode, Check } from '@mui/icons-material';
+import { Box, Button, CircularProgress } from '@mui/material';
+import { green } from '@mui/material/colors';
+import Fab from '@mui/material/Fab';
 
 type ButtonLoadingProps = {
   loading: boolean;

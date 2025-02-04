@@ -1,7 +1,9 @@
 import {
-    Paper, Table, TableBody, TableCell, TableRow, useTheme
+    Paper, Stack, Table, TableBody, TableCell, TableRow, Typography
 } from "@mui/material";
 
+import { DoDisturb, DoneAll } from "@mui/icons-material";
+import { green, red } from "@mui/material/colors";
 import { VerifyResponse } from "../utils";
 
 type TableDataProps= {
@@ -9,7 +11,6 @@ type TableDataProps= {
 };
 
 export const TableData = ({data}: TableDataProps ) => {
-    const theme = useTheme()
   return (
     <Paper elevation={5}>
         <Table >
@@ -18,21 +19,26 @@ export const TableData = ({data}: TableDataProps ) => {
                     <TableCell>
                         Varified:
                     </TableCell>
-                    <TableCell sx={{
-                        backgroundColor: data?.verified ? 
-                            theme.palette.success.main :
-                            theme.palette.error.main
-                    }}>
-                        { data?.verified ? "True" : "False" }
+                    <TableCell >
+                        <Stack spacing={2} direction={"row"}>
+                            <Typography>
+                                { data?.verified ? "True" : "False" }
+                            </Typography>
+                            {
+                                data?.verified ?
+                                <DoneAll sx={{color: green[700]}}/> :
+                                <DoDisturb sx={{color: red[700]}}/>
+                            }
+                        </Stack>
                     </TableCell>
                     <TableCell>
-                        Distance
+                        Distance:
                     </TableCell>
                     <TableCell>
                         { data?.distance }
                     </TableCell>
                     <TableCell>
-                        Threshold
+                        Threshold:
                     </TableCell>
                     <TableCell>
                         { data?.threshold }
@@ -40,19 +46,19 @@ export const TableData = ({data}: TableDataProps ) => {
                 </TableRow>
                 <TableRow>
                     <TableCell>
-                        Detector Backend
+                        Detector Backend:
                     </TableCell>
                     <TableCell>
                         { data?.detector_backend }
                     </TableCell>
                     <TableCell>
-                        Model
+                        Model:
                     </TableCell>
                     <TableCell>
                         { data?.model }
                     </TableCell>
                     <TableCell>
-                        Similarity Metric
+                        Similarity Metric:
                     </TableCell>
                     <TableCell>
                         { data?.similarity_metric }
