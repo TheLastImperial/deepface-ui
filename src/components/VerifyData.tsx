@@ -6,11 +6,11 @@ import { DoDisturb, DoneAll } from "@mui/icons-material";
 import { green, red } from "@mui/material/colors";
 import { VerifyResponse } from "../utils";
 
-type TableDataProps= {
+type VerifyDataProps= {
     data?: VerifyResponse
 };
 
-export const TableData = ({data}: TableDataProps ) => {
+export const VerifyData = ({data}: VerifyDataProps ) => {
   return (
     <Paper elevation={5}>
         <Table >

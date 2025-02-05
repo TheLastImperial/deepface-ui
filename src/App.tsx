@@ -1,6 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Main } from "./pages/Main";
-import { VerifyForm } from "./pages/VerifyForm";
+import { AnalizeForm, VerifyForm } from "./pages";
 
 const App = () => {
     return (
@@ -9,6 +9,7 @@ const App = () => {
                 <Route element ={<Navigate to="/verify"/>} index/>
                 <Route path="/" element={<Main/>}>
                     <Route path="verify" element={<VerifyForm/>} index/>
+                    <Route path="analize" element={ <AnalizeForm/> }/>
                 </Route>
             </Routes>
         </BrowserRouter>

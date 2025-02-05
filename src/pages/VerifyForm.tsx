@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { Area, ImageWrapper, TableData } from "../components";
+import { Area, ImageWrapper, VerifyData } from "../components";
 import { getEnvVariables } from "../helpers";
 import { useForm } from "react-hook-form";
 import { getBase64, VerifyResponse } from "../utils";
@@ -33,6 +33,12 @@ export const VerifyForm = () => {
             setImg1(acceptedFiles[0]);
             const imgStr = await getBase64(acceptedFiles[0]);
             setValue("img1_path", imgStr, {shouldValidate: true});
+
+            setArea1(undefined);
+            setArea2(undefined);
+            setData(undefined)
+            setLoading(false);
+            setSuccess(false);
     },[]);
 
     const onDrop2 = useCallback(async ( acceptedFiles: File[],
@@ -40,6 +46,12 @@ export const VerifyForm = () => {
             setImg2(acceptedFiles[0]);
             const imgStr = await getBase64(acceptedFiles[0]);
             setValue("img2_path", imgStr, {shouldValidate: true});
+
+            setArea1(undefined);
+            setArea2(undefined);
+            setData(undefined)
+            setLoading(false);
+            setSuccess(false);
     },[]);
     const doSubmit = async (data: VerifyFormProps) => {
         if(!data)
@@ -95,7 +107,7 @@ export const VerifyForm = () => {
                         <ImageWrapper onDrop={onDrop2} img={img2} area={area2}/>
                     </Grid2>
                     <Grid2 size={ 12 }>
-                        <TableData data={ data } />
+                        <VerifyData data={ data } />
                     </Grid2>
                     <Grid2 container size={12} sx={{justifyContent: "flex-end"}} >
                         <Grid2 size={12} justifyContent={"flex-end"}>
