@@ -32,6 +32,16 @@ type AnalizeResponseResults = {
     "dominant_race": string
 };
 
+type RepresentResponse = {
+    results: RepresentResult[]
+}
+
+type RepresentResult = {
+    "embedding": number[];
+    "face_confidence": number;
+    "facial_area": FacialArea
+}
+
 const getBase64 = (file:File):Promise<String> => {
     return new Promise(resolve => {
         const reader = new FileReader();
@@ -49,6 +59,8 @@ export type {
     FacialArea,
     AnalizeResponse,
     AnalizeResponseResults,
+    RepresentResponse,
+    RepresentResult,
 };
 
 export {

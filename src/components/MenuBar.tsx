@@ -9,13 +9,20 @@ export const MenuBar = () => {
             <Toolbar>
                 <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                     <Button sx={{ color: '#fff' }}
-                        to ="/verify"
+                        to="/verify"
                         component={NavLink}
                         >
                         Verify
                     </Button>
-                    <Button sx={{ color: '#fff' }} component={NavLink} to ="/analize">
+                    <Button sx={{ color: '#fff' }}
+                        component={NavLink}
+                        to="/analize">
                         Analize
+                    </Button>
+                    <Button sx={{ color: '#fff' }}
+                        component={NavLink}
+                        to="/represent">
+                        Represent
                     </Button>
                 </Box>
             </Toolbar>
