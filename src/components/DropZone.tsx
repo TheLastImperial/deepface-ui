@@ -1,6 +1,7 @@
-import { Grid2 } from '@mui/material';
 import { useMemo } from 'react';
+
 import { DropEvent, FileRejection, useDropzone } from 'react-dropzone';
+import { Grid2 } from '@mui/material';
 
 export type DropZoneProps = {
     onDrop: <T extends File>(

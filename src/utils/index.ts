@@ -10,7 +10,7 @@ type VerifyResponse = {
     "threshold": number;
     "time": number;
     "verified": boolean
-}
+};
 
 type FacialArea = {
     "h": number;
@@ -19,6 +19,27 @@ type FacialArea = {
     "w": number;
     "x": number;
     "y": number;
+};
+
+type AnalizeResponse = {
+    results: AnalizeResponseResults[]
+};
+
+type AnalizeResponseResults = {
+    "age": number;
+    "dominant_emotion": string
+    "dominant_gender": string
+    "dominant_race": string
+};
+
+type RepresentResponse = {
+    results: RepresentResult[]
+}
+
+type RepresentResult = {
+    "embedding": number[];
+    "face_confidence": number;
+    "facial_area": FacialArea
 }
 
 const getBase64 = (file:File):Promise<String> => {
@@ -35,7 +56,11 @@ const getBase64 = (file:File):Promise<String> => {
 
 export type {
     VerifyResponse,
-    FacialArea
+    FacialArea,
+    AnalizeResponse,
+    AnalizeResponseResults,
+    RepresentResponse,
+    RepresentResult,
 };
 
 export {
