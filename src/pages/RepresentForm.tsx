@@ -5,9 +5,9 @@ import { DropEvent, FileRejection } from "react-dropzone";
 
 import { Area, ImageWrapper } from "../components";
 import ButtonLoading from "../components/ButtonLoading";
-import { AnalizeResponse, getBase64 } from "../utils";
+import { getBase64, RepresentResponse } from "../utils";
 import { getEnvVariables } from "../helpers";
-import { AnalizeData } from "../components/AnalizeData";
+import { RepresentData } from "../components/RepresentData";
 
 type RepresentFormProps = {
     img: String
@@ -21,7 +21,7 @@ export const RepresentForm = () => {
 
     const [area, setArea] = useState<Area>();
 
-    const [data, setData] = useState<AnalizeResponse>();
+    const [data, setData] = useState<RepresentResponse>();
     const { VITE_API_URL } = getEnvVariables();
 
     const { 
@@ -55,6 +55,7 @@ export const RepresentForm = () => {
         };
         setSuccess(true);
         const representResponse = await resp.json();
+        setData(representResponse);
         console.log(representResponse)
         const { facial_area } = representResponse.results[0];
         setArea({
@@ -77,7 +78,7 @@ export const RepresentForm = () => {
                         <ImageWrapper onDrop={onDrop} img={img}area={area} />
                     </Grid2>
                     <Grid2 size = { 6 }>
-                        <AnalizeData data={data} />
+                        <RepresentData data={ data }/>
                     </Grid2>
                     <Grid2 container size={12} sx={{justifyContent: "flex-end"}} >
                         <Grid2 size={12} justifyContent={"flex-end"}>
